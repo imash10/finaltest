@@ -1,28 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Final Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brick Cafe</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
     <style>
-        body { margin: 0; background: white; height: 100vh; }
-        model-viewer { width: 100%; height: 100%; }
-        .btn {
-            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-            background: red; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold;
+        /* --- GEN Z DARK THEME --- */
+        body {
+            background-color: #0f0f0f; /* Deep Black */
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
         }
+
+        /* Header Style */
+        header {
+            text-align: left;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        h1 {
+            font-weight: 900;
+            font-size: 36px;
+            margin: 0;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Menu Card Style */
+        .menu-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dish-info {
+            margin-bottom: 20px;
+        }
+
+        .dish-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .dish-desc {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .price-tag {
+            background: #ccff00; /* Neon Green */
+            color: black;
+            font-weight: 900;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* 3D Viewer Styling */
+        model-viewer {
+            width: 100%;
+            height: 300px;
+            background-color: #222; /* Dark Grey Box */
+            border-radius: 16px;
+            --poster-color: transparent;
+        }
+
+        /* The Magic Button */
+        .ar-btn {
+            background-color: #ffffff;
+            color: black;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 14px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Subtle glow animation */
+        .ar-btn:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
     </style>
 </head>
 <body>
-    <model-viewer 
-        src="./brick.glb" 
-        ar 
-        ar-modes="webxr scene-viewer quick-look" 
-        camera-controls 
-        ar-scale="auto" 
-        ar-placement="floor"
-        shadow-intensity="1">
-        
-        <button slot="ar-button" class="btn">📸 View on Table</button>
-    </model-viewer>
+
+    <header>
+        <div class="subtitle">AR EXPERIENCE</div>
+        <h1>THE BRICK CAFE.</h1>
+    </header>
+
+    <div class="menu-card">
+        <div class="dish-info">
+            <div class="dish-name">The Signature Brick</div>
+            <div class="dish-desc">Robust, heavy, and built to last. The foundation of any good meal.</div>
+            <div class="price-tag">₹ 999</div>
+        </div>
+
+        <model-viewer 
+            src="./brick.glb" 
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            ar-scale="auto" 
+            ar-placement="floor" 
+            shadow-intensity="1">
+            
+            <button slot="ar-button" class="ar-btn">
+                <span>👁️ View in Room</span>
+            </button>
+        </model-viewer>
+    </div>
+
+    <div class="menu-card">
+        <div class="dish-info">
+            <div class="dish-name">Spicy Red Brick</div>
+            <div class="dish-desc">Same texture, but with a dangerous kick. Handle with care.</div>
+            <div class="price-tag">₹ 1200</div>
+        </div>
+
+        <model-viewer 
+            src="./brick.glb" 
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            ar-scale="auto" 
+            ar-placement="floor" 
+            shadow-intensity="1">
+            
+            <button slot="ar-button" class="ar-btn">
+                <span>🔥 View in Room</span>
+            </button>
+        </model-viewer>
+    </div>
+
 </body>
 </html>
