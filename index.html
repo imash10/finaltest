@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Test</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; background: white; height: 100vh; }
+        model-viewer { width: 100%; height: 100%; }
+        .btn {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: red; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <model-viewer 
+        src="./brick.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        ar-scale="auto" 
+        ar-placement="floor"
+        shadow-intensity="1">
+        
+        <button slot="ar-button" class="btn">📸 View on Table</button>
+    </model-viewer>
+</body>
+</html>
